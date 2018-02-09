@@ -19,57 +19,60 @@
 #pragma mark - Download with estimated time
 
 - (void)downloadFileForURL:(NSString *)urlString
-                  withName:(NSString *)fileName
-          inDirectoryNamed:(NSString *)directory
-              friendlyName:(NSString *)friendlyName
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-             remainingTime:(void(^)(NSUInteger seconds))remainingTimeBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+				  withName:(NSString *)fileName
+		  inDirectoryNamed:(NSString *)directory
+			 progressBlock:(TWRDownloadProgressBlock)progressBlock
+			 remainingTime:(TWRDownloadRemainingTimeBlock)remainingTimeBlock
+		   completionBlock:(TWRDownloadCompletionBlock)completionBlock
+	  enableBackgroundMode:(BOOL)backgroundMode;
 
-- (void)downloadFileForURL:(NSString *)url
-                  withName:(NSString *)fileName
-          inDirectoryNamed:(NSString *)directory
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+- (void)downloadFileForURL:(NSString *)urlString
+		  inDirectoryNamed:(NSString *)directory
+			 progressBlock:(TWRDownloadProgressBlock)progressBlock
+			 remainingTime:(TWRDownloadRemainingTimeBlock)remainingTimeBlock
+		   completionBlock:(TWRDownloadCompletionBlock)completionBlock
+	  enableBackgroundMode:(BOOL)backgroundMode;
 
-- (void)downloadFileForURL:(NSString *)url
-          inDirectoryNamed:(NSString *)directory
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+- (void)downloadFileForURL:(NSString *)urlString
+			 progressBlock:(TWRDownloadProgressBlock)progressBlock
+			 remainingTime:(TWRDownloadRemainingTimeBlock)remainingTimeBlock
+		   completionBlock:(TWRDownloadCompletionBlock)completionBlock
+	  enableBackgroundMode:(BOOL)backgroundMode;
 
-- (void)downloadFileForURL:(NSString *)url
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+#pragma mark - Download without estimated time
 
-#pragma mark - Download with estimated time
+- (void)downloadFileForURL:(NSString *)urlString
+				  withName:(NSString *)fileName
+		  inDirectoryNamed:(NSString *)directory
+			 progressBlock:(TWRDownloadProgressBlock)progressBlock
+		   completionBlock:(TWRDownloadCompletionBlock)completionBlock
+	  enableBackgroundMode:(BOOL)backgroundMode;
 
-- (void)downloadFileForURL:(NSString *)url
-                  withName:(NSString *)fileName
-          inDirectoryNamed:(NSString *)directory
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-             remainingTime:(void(^)(NSUInteger seconds))remainingTimeBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+- (void)downloadFileForURL:(NSString *)urlString
+		  inDirectoryNamed:(NSString *)directory
+			 progressBlock:(TWRDownloadProgressBlock)progressBlock
+		   completionBlock:(TWRDownloadCompletionBlock)completionBlock
+	  enableBackgroundMode:(BOOL)backgroundMode;
 
-- (void)downloadFileForURL:(NSString *)url
-          inDirectoryNamed:(NSString *)directory
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-             remainingTime:(void(^)(NSUInteger seconds))remainingTimeBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+- (void)downloadFileForURL:(NSString *)urlString
+			 progressBlock:(TWRDownloadProgressBlock)progressBlock
+		   completionBlock:(TWRDownloadCompletionBlock)completionBlock
+	  enableBackgroundMode:(BOOL)backgroundMode;
 
-- (void)downloadFileForURL:(NSString *)url
-             progressBlock:(void(^)(CGFloat progress))progressBlock
-             remainingTime:(void(^)(NSUInteger seconds))remainingTimeBlock
-           completionBlock:(void(^)(BOOL completed))completionBlock
-      enableBackgroundMode:(BOOL)backgroundMode;
+#pragma mark - Other than download
+
+- (void)cancelDownloadForUrl:(NSString *)fileIdentifier;
 
 - (void)cancelAllDownloads;
-- (void)cancelDownloadForUrl:(NSString *)fileIdentifier;
+
+/**
+ *  This method helps checking which downloads are currently ongoing.
+ *
+ *  @return an NSArray of NSString with the URLs of the currently downloading files.
+ */
+- (NSArray *)currentDownloads;
+
+#pragma mark - File Management
 
 - (void)cleanDirectoryNamed:(NSString *)directory;
 
@@ -90,11 +93,5 @@
 - (BOOL)deleteFileWithName:(NSString *)fileName;
 - (BOOL)deleteFileWithName:(NSString *)fileName inDirectory:(NSString *)directoryName;
 
-/**
- *  This method helps checking which downloads are currently ongoing.
- *
- *  @return an NSArray of NSString with the URLs of the currently downloading files.
- */
-- (NSArray *)currentDownloads;
 
 @end
