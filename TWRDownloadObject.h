@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGBase.h>
-
-typedef void(^TWRDownloadRemainingTimeBlock)(NSUInteger seconds);
-typedef void(^TWRDownloadProgressBlock)(CGFloat progress);
-typedef void(^TWRDownloadCompletionBlock)(BOOL completed);
+#import "TWRDownloadCallback.h"
 
 @interface TWRDownloadObject : NSObject
 

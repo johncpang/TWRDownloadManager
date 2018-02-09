@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGBase.h>
+#import "TWRDownloadCallback.h"
 
 @interface TWRDownloadManager : NSObject
 
 @property (nonatomic, strong) void(^backgroundTransferCompletionHandler)();
 
 + (instancetype)sharedManager;
+
+#pragma mark - Download with estimated time
 
 - (void)downloadFileForURL:(NSString *)urlString
                   withName:(NSString *)fileName
@@ -71,8 +74,8 @@
 - (void)cleanDirectoryNamed:(NSString *)directory;
 
 - (BOOL)isFileDownloadingForUrl:(NSString *)fileIdentifier;
-- (BOOL)isFileDownloadingForUrl:(NSString *)url withProgressBlock:(void(^)(CGFloat progress))block;
-- (BOOL)isFileDownloadingForUrl:(NSString *)url withProgressBlock:(void(^)(CGFloat progress))block completionBlock:(void(^)(BOOL completed))completionBlock;
+- (BOOL)isFileDownloadingForUrl:(NSString *)url withProgressBlock:(TWRDownloadProgressBlock)block;
+- (BOOL)isFileDownloadingForUrl:(NSString *)url withProgressBlock:(TWRDownloadProgressBlock)block completionBlock:(TWRDownloadCompletionBlock)completionBlock;
 
 - (NSString *)localPathForFile:(NSString *)fileIdentifier;
 - (NSString *)localPathForFile:(NSString *)fileIdentifier inDirectory:(NSString *)directoryName;

@@ -45,6 +45,7 @@
 		1538CCFD19C4F057002C04E6 /* BackgroundDownloadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackgroundDownloadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1538CD0219C4F057002C04E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1538CD0319C4F057002C04E6 /* BackgroundDownloadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundDownloadTests.m; sourceTree = "<group>"; };
+		52AC349D202DE94A001C3334 /* TWRDownloadCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TWRDownloadCallback.h; path = ../TWRDownloadCallback.h; sourceTree = "<group>"; };
 		752DEB8E15794F5E823ADAC6 /* libPods-BackgroundDownload.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BackgroundDownload.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9702E11AF0FDD8006A688B /* TWRDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWRDownloadManager.h; path = ../TWRDownloadManager.h; sourceTree = "<group>"; };
 		BC9702E21AF0FDD8006A688B /* TWRDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TWRDownloadManager.m; path = ../TWRDownloadManager.m; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		BC9702E01AF0FDC9006A688B /* TWRDownloadManager */ = {
 			isa = PBXGroup;
 			children = (
+				52AC349D202DE94A001C3334 /* TWRDownloadCallback.h */,
 				BC9702E11AF0FDD8006A688B /* TWRDownloadManager.h */,
 				BC9702E21AF0FDD8006A688B /* TWRDownloadManager.m */,
 				BC9702E31AF0FDD8006A688B /* TWRDownloadObject.h */,
@@ -208,6 +210,7 @@
 				TargetAttributes = {
 					1538CCE319C4F056002C04E6 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = CKW8FG938W;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -390,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CKW8FG938W;
 				INFOPLIST_FILE = BackgroundDownload/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CKW8FG938W;
 				INFOPLIST_FILE = BackgroundDownload/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
