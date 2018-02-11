@@ -39,9 +39,10 @@
         // Background session
         NSURLSessionConfiguration *backgroundConfiguration = nil;
 
-        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
-            backgroundConfiguration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[[NSBundle mainBundle] bundleIdentifier]];
-        } else {
+		if (@available(iOS 8.0, *)) {
+			backgroundConfiguration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[[NSBundle mainBundle] bundleIdentifier]];
+		} else {
+			// Fallback on earlier versions
             backgroundConfiguration = [NSURLSessionConfiguration backgroundSessionConfiguration:@"re.touchwa.downloadmanager"];
         }
 
@@ -462,7 +463,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
         if ([downloadTasks count] == 0) {
             if (self.backgroundTransferCompletionHandler != nil) {
                 // Copy locally the completion handler.
-                void(^completionHandler)() = self.backgroundTransferCompletionHandler;
+                void(^completionHandler)(void) = self.backgroundTransferCompletionHandler;
 
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     // Call the completion handler to tell the system that there are no other background transfers.

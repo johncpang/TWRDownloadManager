@@ -12,7 +12,7 @@
 
 @interface TWRDownloadManager : NSObject
 
-@property (nonatomic, strong) void(^backgroundTransferCompletionHandler)();
+@property (nonatomic, strong) void(^backgroundTransferCompletionHandler)(void);
 
 + (instancetype)sharedManager;
 
